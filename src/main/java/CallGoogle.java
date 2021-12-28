@@ -71,9 +71,7 @@ public class CallGoogle {
 		
 		
 		for(Element li : lis){
-			try 
-
-			{
+			try {
 				String citeUrl = li.select("a").get(0).attr("href");
 				String title = li.select("a").get(0).select(".vvjwJb").text();
 				if(title.equals("")) {
@@ -91,9 +89,6 @@ public class CallGoogle {
 			
 
 		}
-
-		
-
 		return retVal;
 
 	}
