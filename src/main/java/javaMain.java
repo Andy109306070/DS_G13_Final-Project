@@ -16,7 +16,7 @@ public class javaMain {
 		Keyword review =new Keyword ("review",2);
 		Keyword commentCh =new Keyword ("µû»ù",3);
 		Keyword comment =new Keyword ("comment",2.5);
-		Keyword tablet =new Keyword ("tablet  ",1);
+		Keyword tablet =new Keyword ("tablet123",1);
 		KeywordList.add(MicrosoftCh);
 		KeywordList.add(Microsoft);
 		KeywordList.add(laptopCh);
