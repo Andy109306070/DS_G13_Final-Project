@@ -9,5 +9,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/資料結構HW/lab10/HW10/jsoup-1.13.1.jar"/>
+	<classpathentry kind="src" path="/HW10"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
