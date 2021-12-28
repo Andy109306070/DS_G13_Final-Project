@@ -12,9 +12,7 @@ import org.jsoup.select.Elements;
 
 
 
-public class CallGoogle 
-
-{
+public class CallGoogle {
 
 	public String searchKeyword;
 
@@ -22,9 +20,7 @@ public class CallGoogle
 
 	public String content;
 
-	public CallGoogle(String searchKeyword)
-
-	{
+	public CallGoogle(String searchKeyword){
 
 		this.searchKeyword = searchKeyword;
 
@@ -34,9 +30,7 @@ public class CallGoogle
 
 	
 
-	private String fetchContent() throws IOException
-
-	{
+	private String fetchContent() throws IOException{
 		String retVal = "";
 
 		URL u = new URL(url);
@@ -52,20 +46,15 @@ public class CallGoogle
 		BufferedReader bufReader = new BufferedReader(inReader);
 		String line = null;
 
-		while((line=bufReader.readLine())!=null)
-		{
+		while((line=bufReader.readLine())!=null){
 			retVal += line;
 
 		}
 		return retVal;
 	}
-	public HashMap<String, String> query() throws IOException
+	public HashMap<String, String> query() throws IOException{
 
-	{
-
-		if(content==null)
-
-		{
+		if(content==null){
 
 			content= fetchContent();
 
@@ -81,8 +70,7 @@ public class CallGoogle
 //		 System.out.println(lis.size());
 		
 		
-		for(Element li : lis)
-		{
+		for(Element li : lis){
 			try 
 
 			{
