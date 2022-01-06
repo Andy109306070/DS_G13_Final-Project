@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-public class javaMain {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ArrayList<Keyword> KeywordList=new ArrayList<Keyword>();
+public class KeywordList {
+	ArrayList<Keyword> KeywordList=new ArrayList<Keyword>();
+	
+	public void addKeyword() {
 		Keyword MicrosoftCh=new Keyword ("·L³n",5);
 		Keyword Microsoft=new Keyword ("Microsoft",4.5);
 		Keyword laptopCh=new Keyword ("¥­ªO",4);
@@ -30,7 +30,9 @@ public class javaMain {
 		KeywordList.add(commentCh);
 		KeywordList.add(comment);
 		KeywordList.add(tablet);
-
 	}
-
 }
+
+	
+
+

@@ -6,7 +6,8 @@
 <meta charset="BIG5">
 <title>Result</title>
 </head>
-<body>
+<body style='background-color: #FFFFBB'>
+
 
 </body>
 </html>
