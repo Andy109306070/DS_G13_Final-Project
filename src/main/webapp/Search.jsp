@@ -7,6 +7,7 @@
 <title>MicrogleSoft</title>
 </head>
 <body>
+<form action='${requestUri}' method='get'>
 
 </body>
 </html>
