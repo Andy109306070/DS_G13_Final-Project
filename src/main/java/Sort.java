@@ -1,14 +1,16 @@
+import java.util.ArrayList;
 
 public class Sort {
+	ArrayList<BinaryTree> TreeList = new ArrayList<BinaryTree>();
 	
 	public void sort(){
-		if(lst.size() == 0)
+		if(TreeList.size() == 0)
 		{
 			System.out.println("InvalidOperation");
 		}
 		else 
 		{
-			quickSort(0, lst.size()-1);
+			quickSort(0, TreeList.size()-1);
 		}
 
 	}
@@ -17,10 +19,10 @@ public class Sort {
 			return;
 		}
 		int pivotIdx = leftbound;
-		int pivot = lst.get(rightbound).count;
+		double pivot = TreeList.get(rightbound).score;
 		
 		for(int i = leftbound;i < rightbound;i++) {
-			if(lst.get(i).count < pivot) {
+			if(TreeList.get(i).score < pivot) {
 				swap(i , pivotIdx);
 				pivotIdx++;
 			}
@@ -30,9 +32,9 @@ public class Sort {
 		quickSort(pivotIdx +1 , rightbound);
 	}
 	private void swap(int aIndex, int bIndex){
-		Keyword temp = lst.get(aIndex);
-		lst.set(aIndex, lst.get(bIndex));
-		lst.set(bIndex, temp);
+		BinaryTree temp = TreeList.get(aIndex);
+		TreeList.set(aIndex, TreeList.get(bIndex));
+		TreeList.set(bIndex, temp);
 	}
 
 }

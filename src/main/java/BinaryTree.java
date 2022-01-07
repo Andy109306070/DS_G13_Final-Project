@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 
 public class BinaryTree {
+	public double score;
 	public BinaryNode root;
 	
 	public BinaryTree(Webpage rootPage){
