@@ -30,5 +30,7 @@ public class Sort {
 		KeywordHeap heap=new KeywordHeap(pageList);
 		sortedPageList=heap.output();
 	}
-	
+	public ArrayList<Webpage>getSortedPageList(){
+		return sortedPageList;
+	}
 }

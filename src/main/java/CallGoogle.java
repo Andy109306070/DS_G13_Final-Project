@@ -43,7 +43,7 @@ public class CallGoogle {
 		return retVal;
 	}
 	public HashMap<String, String> query() throws IOException{
-
+		Sort sort=new Sort();
 		if(content==null){
 
 			content= fetchContent();
@@ -67,12 +67,18 @@ public class CallGoogle {
 				if(title.equals("")) {
 					continue;
 				}
+				sort.addWagePage(citeUrl, title);
+
 				System.out.println(title + ","+citeUrl);
-				retVal.put(title, citeUrl);
+				
 				
 			} catch (IndexOutOfBoundsException e) {
 //				e.printStackTrace();
 			}
+		}
+		sort.pageListSort();
+		for(int i=0;i<sort.getSortedPageList().size();i++) {
+			retVal.put(sort.getSortedPageList().get(i).getUrl() , sort.getSortedPageList().get(i).getName());
 		}
 		return retVal;
 

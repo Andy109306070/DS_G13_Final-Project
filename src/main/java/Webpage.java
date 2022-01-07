@@ -22,5 +22,11 @@ public class Webpage {
 	public double getScore() {
 		return score;
 	}
+	public String getUrl() {
+		return url;
+	}
+	public String getName() {
+		return url;
+	}
 	
 }
