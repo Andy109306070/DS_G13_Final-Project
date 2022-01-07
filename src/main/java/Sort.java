@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class sort {
+public class Sort {
 	
 	private String title;
 	private String url;
@@ -10,7 +10,7 @@ public class sort {
 	private ArrayList<Webpage> pageList;
 	private KeywordList keywordlist;
 	
-	public sort() {
+	public Sort() {
 		keywordlist=new KeywordList();
 		pageList=new ArrayList<Webpage>();
 		sortedPageList=new ArrayList<Webpage>();
