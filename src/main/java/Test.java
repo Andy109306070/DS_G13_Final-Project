@@ -44,7 +44,7 @@ public class Test extends HttpServlet {
 		if(request.getParameter("keyword")== null) {
 			String requestUri = request.getRequestURI();
 			request.setAttribute("requestUri", requestUri);
-			request.getRequestDispatcher("Sample1.jsp").forward(request, response);
+			request.getRequestDispatcher("Search.jsp").forward(request, response);
 			return;
 		}
 		CallGoogle google = new CallGoogle(request.getParameter("keyword"));
@@ -60,7 +60,7 @@ public class Test extends HttpServlet {
 		    s[num][1] = value;
 		    num++;
 		}
-		request.getRequestDispatcher("Sample2.jsp")
+		request.getRequestDispatcher("Reasult.jsp")
 		 .forward(request, response); 
 		
 	}
