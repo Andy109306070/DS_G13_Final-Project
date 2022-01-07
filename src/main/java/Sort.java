@@ -1,40 +1,34 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class Sort {
-	ArrayList<BinaryTree> TreeList = new ArrayList<BinaryTree>();
+public class sort {
 	
-	public void sort(){
-		if(TreeList.size() == 0)
-		{
-			System.out.println("InvalidOperation");
-		}
-		else 
-		{
-			quickSort(0, TreeList.size()-1);
-		}
-
+	private String title;
+	private String url;
+	private ArrayList<Webpage> sortedPageList;
+	
+	private ArrayList<Webpage> pageList;
+	private KeywordList keywordlist;
+	
+	public sort() {
+		keywordlist=new KeywordList();
+		pageList=new ArrayList<Webpage>();
+		sortedPageList=new ArrayList<Webpage>();
 	}
-	private void quickSort(int leftbound, int rightbound){
-		if(leftbound >= rightbound) {
-			return;
-		}
-		int pivotIdx = leftbound;
-		double pivot = TreeList.get(rightbound).score;
-		
-		for(int i = leftbound;i < rightbound;i++) {
-			if(TreeList.get(i).score < pivot) {
-				swap(i , pivotIdx);
-				pivotIdx++;
-			}
-		}
-		swap(pivotIdx , rightbound);
-		quickSort(leftbound, pivotIdx - 1);
-		quickSort(pivotIdx +1 , rightbound);
+	
+	public void addWagePage(String url,String title) throws IOException {
+		Webpage webpage=new Webpage(url, title);
+		setScore(webpage);
+		pageList.add(webpage);
 	}
-	private void swap(int aIndex, int bIndex){
-		BinaryTree temp = TreeList.get(aIndex);
-		TreeList.set(aIndex, TreeList.get(bIndex));
-		TreeList.set(bIndex, temp);
+	
+	public void setScore(Webpage webpage) throws IOException {
+		BinaryTree tree =new BinaryTree(webpage);	
+		tree.setPostOrderScore(keywordlist.getKeywordList());
 	}
-
+	public void pageListSort() {
+		KeywordHeap heap=new KeywordHeap(pageList);
+		sortedPageList=heap.output();
+	}
+	
 }
