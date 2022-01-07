@@ -11,23 +11,15 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class CallGoogle {
-
 	public String searchKeyword;
-
 	public String url;
-
 	public String content;
-
-	public CallGoogle(String searchKeyword){
-
-		this.searchKeyword = searchKeyword;
-
-		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=20";
-
-	}
-
 	
-
+	public CallGoogle(String searchKeyword){
+		this.searchKeyword = searchKeyword;
+		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=20";
+	}
+	
 	private String fetchContent() throws IOException{
 		String retVal = "";
 
@@ -77,15 +69,10 @@ public class CallGoogle {
 				}
 				System.out.println(title + ","+citeUrl);
 				retVal.put(title, citeUrl);
-
+				
 			} catch (IndexOutOfBoundsException e) {
-
 //				e.printStackTrace();
-
 			}
-
-			
-
 		}
 		return retVal;
 
