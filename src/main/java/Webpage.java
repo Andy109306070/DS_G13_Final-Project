@@ -19,5 +19,8 @@ public class Webpage {
 			score+=k.weight * counter.countKeyword(k.name);
 		}
 	}
+	public double getScore() {
+		return score;
+	}
 	
 }
