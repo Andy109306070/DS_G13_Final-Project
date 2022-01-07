@@ -47,7 +47,7 @@ public class Test extends HttpServlet {
 			request.getRequestDispatcher("Sample1.jsp").forward(request, response);
 			return;
 		}
-		GoogleQuery google = new GoogleQuery(request.getParameter("keyword"));
+		CallGoogle google = new CallGoogle(request.getParameter("keyword"));
 		HashMap<String, String> query = google.query();
 		
 		String[][] s = new String[query.size()][2];
