@@ -26,15 +26,12 @@ text-decoration:underline;
 <body style='background-color: #FFFFBB'>
 <form action='${requestUri}' method='get'>
 
-<div style='position: absolute;margin-top:190px;margin-left:50px'>
+	<div style='position: absolute;margin-top:190px;margin-left:50px'>
 		<%
 		String[][] orderList = (String[][]) request.getAttribute("query");
 		for (int i = 0; i < orderList.length; i++) {
-			String s=orderList[i][1];
-			s=s.substring(7);
-		%>
-		
-		<a href='<%=s%>'><%=orderList[i][0]%> </a> <br>連結<br>
+		%>	
+		<a href='<%=orderList[i][1]%>'><%=orderList[i][0]%> </a> <br>連結<br>
 		<br>
 		<%
 }
@@ -51,8 +48,5 @@ text-decoration:underline;
 	</div>
 
 </form>
-<div>
-<a href ='http://localhost:8080/Final_Project/TestProject'></a>
-</div>
 </body>
 </html>
