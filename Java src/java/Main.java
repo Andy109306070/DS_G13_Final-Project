@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Main
  */
-@WebServlet("/java/Main")
+@WebServlet("/Main")
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class Main extends HttpServlet {
 		if(request.getParameter("keyword") == null) {
 			String requestUri = request.getRequestURI();
 			request.setAttribute("requestUri", requestUri);
-			request.getRequestDispatcher("/webapp/Search.jsp").forward(request, response);
+			request.getRequestDispatcher("Search.jsp").forward(request, response);
 			return;
 		}
 		CallGoogle google = new CallGoogle(request.getParameter("keyword"));
@@ -55,7 +55,7 @@ public class Main extends HttpServlet {
 		    num++;
 		}
 		
-		request.getRequestDispatcher("/webapp/Result.jsp").forward(request, response);
+		request.getRequestDispatcher("Result.jsp").forward(request, response);
 	}
 
 	/**
