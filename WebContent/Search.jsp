@@ -30,8 +30,12 @@ style='position:absolute;width:37px;height:37px;left:50%;top:50%;margin-top:-55p
 margin-left:368px '/>
 </div>
 <div>
-<img src="images/bone.png" style='position:absolute;width:350px;height:250px;left:50%;top:40%;margin-top:-265px;
+<img src="images/bone.png" style='position:absolute;width:350px;height:250px;left:50%;top:40%;margin-top:100px;
 margin-left:-175px '>
+</div>
+<div>
+<img src="images/Microdogle.png" style='position:absolute;width:1200px;height:300px;left:50%;top:40%;margin-top:-300px;
+margin-left:-580px '>
 </div>
 </form>
 </body>
