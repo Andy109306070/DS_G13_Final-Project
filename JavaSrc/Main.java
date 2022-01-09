@@ -53,7 +53,7 @@ public class Main extends HttpServlet {
 		    s[num][1] = value;
 		    num++;
 		}
-		System.out.println(query.entrySet());
+//		System.out.println(query.entrySet());
 		
 		request.getRequestDispatcher("Result.jsp").forward(request, response);
 	}

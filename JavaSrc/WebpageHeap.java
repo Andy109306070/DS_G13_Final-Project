@@ -3,14 +3,14 @@
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
-public class KeywordHeap {
+public class WebpageHeap {
 	private PriorityQueue<Webpage> heap;
 	
-	public KeywordHeap(ArrayList<Webpage> pageList){
+	public WebpageHeap(ArrayList<Webpage> pageList){
 		
-		this.heap = new PriorityQueue<Webpage>();
+		this.heap = new PriorityQueue<Webpage>(pageList.size(), new WebpageComparator());
 		
-		for(int i=0;i<pageList.size();i++) {
+		for(int i = 0; i < pageList.size(); i++) {
 			heap.add(pageList.get(i));
 		}
 	}
@@ -33,18 +33,18 @@ public class KeywordHeap {
 	
 	public void removeMin(){
 		//TODO: write remove minimal element logic here...
-		Webpage k=heap.poll();
-		System.out.println(k.toString());		
+		
+		System.out.println(heap.toString());		
 	}
 	
 	public ArrayList<Webpage> output(){
 		//TODO: write output and remove all element logic here...
-		ArrayList<Webpage> Webpages = new ArrayList<Webpage>();
+		ArrayList<Webpage> webpages = new ArrayList<Webpage>();
 		
 		while(heap.peek() != null){
-			 Webpages.add(heap.poll());	
+			 webpages.add(heap.poll());	
 		}
-		return Webpages;
 		
+		return webpages;
 	}
 }
