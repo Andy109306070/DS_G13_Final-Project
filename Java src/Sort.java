@@ -13,26 +13,28 @@ public class Sort {
 	private KeywordList keywordlist;
 	
 	public Sort() {
-		keywordlist=new KeywordList();
-		pageList=new ArrayList<Webpage>();
-		sortedPageList=new ArrayList<Webpage>();
+		keywordlist = new KeywordList();
+		pageList = new ArrayList<Webpage>();
+		sortedPageList = new ArrayList<Webpage>();
 	}
 	
 	public void addWagePage(String url,String title) throws IOException {
-		Webpage webpage=new Webpage(url, title);
+		Webpage webpage = new Webpage(url, title);
 		setScore(webpage);
 		pageList.add(webpage);
 	}
 	
 	public void setScore(Webpage webpage) throws IOException {
-		BinaryTree tree =new BinaryTree(webpage);	
+		BinaryTree tree = new BinaryTree(webpage);	
 		tree.setPostOrderScore(keywordlist.getKeywordList());
 	}
+	
 	public void pageListSort() {
-		KeywordHeap heap=new KeywordHeap(pageList);
-		sortedPageList=heap.output();
+		KeywordHeap heap = new KeywordHeap(pageList);
+		sortedPageList = heap.output();
 	}
-	public ArrayList<Webpage>getSortedPageList(){
+	
+	public ArrayList<Webpage> getSortedPageList(){
 		return sortedPageList;
 	}
 }

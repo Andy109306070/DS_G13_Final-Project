@@ -24,7 +24,6 @@ public class BinaryTree {
 		//1. compute the score of children nodes postorder
 		for(BinaryNode child : startNode.children){
 			setPostOrderScore(child, keywords);
-			
 		}
 		//**setNode score of startNode
 			startNode.setNodeScore(keywords);

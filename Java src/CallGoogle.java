@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -52,8 +53,10 @@ public class CallGoogle {
 		
 		return retVal;
 	}
-	public HashMap<String, String> query() throws IOException{
+	
+	public HashMap<String, String> query() throws IOException {
 		Sort sort = new Sort();
+		
 		if(content == null){
 			content = fetchContent();
 		}
@@ -69,26 +72,38 @@ public class CallGoogle {
 		
 		for(Element li : lis){
 			try {
-				String citeUrl = li.select("a").get(0).attr("href");
+				String citeUrl = li.select("a").get(0).attr("href");					
 				String title = li.select("a").get(0).select(".vvjwJb").text();
+				
+				// Continue to next round if there is no title
 				if(title.equals("")) {
 					continue;
 				}
-				sort.addWagePage(citeUrl, title);
+				
+				// Remove the extra text in the end of the URL
+				citeUrl = citeUrl.substring(7, citeUrl.indexOf("&"));
+				System.out.println(citeUrl);
+				
+				retVal.put(title, citeUrl);
+				
+//				sort.addWagePage(citeUrl, title);
 
 				System.out.println(title + ","+citeUrl);
-				
-				
+
 			} catch (IndexOutOfBoundsException e) {
-//				e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
-		sort.pageListSort();
-		for(int i=0;i<sort.getSortedPageList().size();i++) {
-			retVal.put(sort.getSortedPageList().get(i).getUrl() , sort.getSortedPageList().get(i).getName());
-		}
+		
+//		sort.pageListSort();
+//		
+//		for(Webpage w: sort.getSortedPageList()) {
+//			retVal.put(w.getName() , w.getUrl());
+//		}
+//		
+//		System.out.print(retVal);
+		
 		return retVal;
-
 	}
 
 }

@@ -33,9 +33,6 @@ margin-left:368px '/>
 <img src="images/bone.png" style='position:absolute;width:350px;height:250px;left:50%;top:40%;margin-top:-265px;
 margin-left:-175px '>
 </div>
-<div>
-<a href ='http://localhost:8080/DS_project'></a>
-</div>
 </form>
 </body>
 </html>

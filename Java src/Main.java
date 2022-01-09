@@ -44,7 +44,6 @@ public class Main extends HttpServlet {
 		HashMap<String, String> query = google.query();
 		
 		String[][] s = new String[query.size()][2];
-		System.out.print(s);
 		request.setAttribute("query", s);
 		int num = 0;
 		for(Entry<String, String> entry : query.entrySet()) {
