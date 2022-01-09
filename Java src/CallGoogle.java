@@ -80,13 +80,14 @@ public class CallGoogle {
 					continue;
 				}
 				
-				// Remove the extra text in the end of the URL
+				// Remove the extra text in the end of the URL and decode the Chinese URL
 				citeUrl = citeUrl.substring(7, citeUrl.indexOf("&"));
+				citeUrl = java.net.URLDecoder.decode(citeUrl, "utf-8");
 				System.out.println(citeUrl);
 				
-				retVal.put(title, citeUrl);
+//				retVal.put(title, citeUrl);
 				
-//				sort.addWagePage(citeUrl, title);
+				sort.addWagePage(citeUrl, title);
 
 				System.out.println(title + ","+citeUrl);
 
@@ -95,13 +96,13 @@ public class CallGoogle {
 			}
 		}
 		
-//		sort.pageListSort();
-//		
-//		for(Webpage w: sort.getSortedPageList()) {
-//			retVal.put(w.getName() , w.getUrl());
-//		}
-//		
-//		System.out.print(retVal);
+		sort.pageListSort();
+		
+		for(Webpage w: sort.getSortedPageList()) {
+			retVal.put(w.getName() , w.getUrl());
+		}
+		
+		System.out.print(retVal);
 		
 		return retVal;
 	}

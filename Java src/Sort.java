@@ -18,7 +18,7 @@ public class Sort {
 		sortedPageList = new ArrayList<Webpage>();
 	}
 	
-	public void addWagePage(String url,String title) throws IOException {
+	public void addWagePage(String url, String title) throws IOException {
 		Webpage webpage = new Webpage(url, title);
 		setScore(webpage);
 		pageList.add(webpage);
