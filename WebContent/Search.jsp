@@ -16,7 +16,7 @@
 </style>
 </head>
 <body style='background-color:#FFFFBB'>
-<form action='Result.jsp' method='get'>
+<form action='${requestUri}' method='get'>
  
 <div>
 <input type='text' class="border-style" id="padding"  
