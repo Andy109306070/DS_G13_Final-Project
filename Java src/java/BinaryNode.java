@@ -1,4 +1,5 @@
-package src.main.java;
+package java;
+
 import java.io.IOException;
 import java.util.ArrayList;
 

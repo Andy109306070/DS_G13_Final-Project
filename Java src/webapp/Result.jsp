@@ -31,7 +31,9 @@ text-decoration:underline;
 		String[][] orderList = (String[][]) request.getAttribute("query");
 		for (int i = 0; i < orderList.length; i++) {
 			String s=orderList[i][1];
-			s=s.substring(7);
+			
+			// Get the URL of the result and remove the extra words in the end
+			s = s.substring(7, s.indexOf("&"));
 		%>
 		
 		<a href='<%=s%>'><%=orderList[i][0]%> </a> <br>連結<br>

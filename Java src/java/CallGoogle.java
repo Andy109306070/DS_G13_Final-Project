@@ -1,7 +1,10 @@
+package java;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -17,16 +20,23 @@ public class CallGoogle {
 	
 	public CallGoogle(String searchKeyword){
 		this.searchKeyword = searchKeyword;
-		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=20";
+		
+		// Encode Chinese keyword to UTF-8 for request URL
+		try {
+			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=20";
+//			System.out.print(url);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private String fetchContent() throws IOException{
 		String retVal = "";
-
+		
 		URL u = new URL(url);
-
+		
 		URLConnection conn = u.openConnection();
-
 		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
 
 		InputStream in = conn.getInputStream();
@@ -36,18 +46,16 @@ public class CallGoogle {
 		BufferedReader bufReader = new BufferedReader(inReader);
 		String line = null;
 
-		while((line=bufReader.readLine())!=null){
+		while((line=bufReader.readLine())!=null) {
 			retVal += line;
-
 		}
+		
 		return retVal;
 	}
 	public HashMap<String, String> query() throws IOException{
-		Sort sort=new Sort();
-		if(content==null){
-
-			content= fetchContent();
-
+		Sort sort = new Sort();
+		if(content == null){
+			content = fetchContent();
 		}
 
 		HashMap<String, String> retVal = new HashMap<String, String>();
@@ -58,7 +66,6 @@ public class CallGoogle {
 //		 System.out.println(lis);
 		lis = lis.select(".kCrYT");
 //		 System.out.println(lis.size());
-		
 		
 		for(Element li : lis){
 			try {
