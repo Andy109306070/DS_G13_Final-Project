@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                    
+                        
+    
     
     
     
     <wb-module deploy-name="DS_project">
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Java src"/>
+                
         <wb-resource deploy-path="/" source-path="/WebContent"/>
-                                        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/JavaSrc"/>
+                                                
+        
         
         
         
         <property name="java-output-path" value="/DS_project/build/classes"/>
-                                
+                                        
+        
         
         
         <property name="context-root" value="DS_project"/>
-                                    
+                                            
+    
     
     
     
     </wb-module>
-                
+                    
+
 
 
 

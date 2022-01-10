@@ -24,11 +24,11 @@ public class CallGoogle {
 		
 		// Encode Chinese keyword to UTF-8 for request URL
 		try {
-			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=20";
+			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=10";
 //			System.out.print(url);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 	}
 	
@@ -83,26 +83,27 @@ public class CallGoogle {
 				// Remove the extra text in the end of the URL and decode the Chinese URL
 				citeUrl = citeUrl.substring(7, citeUrl.indexOf("&"));
 				citeUrl = java.net.URLDecoder.decode(citeUrl, "utf-8");
-				System.out.println(citeUrl);
+//				System.out.println(citeUrl);
 				
 //				retVal.put(title, citeUrl);
 				
 				sort.addWagePage(citeUrl, title);
 
-				System.out.println(title + ","+citeUrl);
+//				System.out.println(title + ","+citeUrl);
 
 			} catch (IndexOutOfBoundsException e) {
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		}
 		
+//		System.out.print(sort);
 		sort.pageListSort();
 		
 		for(Webpage w: sort.getSortedPageList()) {
 			retVal.put(w.getName() , w.getUrl());
 		}
 		
-		System.out.print(retVal);
+//		System.out.print(retVal);
 		
 		return retVal;
 	}

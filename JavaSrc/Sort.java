@@ -30,7 +30,7 @@ public class Sort {
 	}
 	
 	public void pageListSort() {
-		KeywordHeap heap = new KeywordHeap(pageList);
+		WebpageHeap heap = new WebpageHeap(pageList);
 		sortedPageList = heap.output();
 	}
 	
