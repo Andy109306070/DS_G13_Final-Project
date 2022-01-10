@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
-
-  <runtime name="D-_ProgramData_Eclipse_apache-tomcat-8.5.68"/>
-
+  <runtime name="Apache Tomcat v8.5"/>
   <fixed facet="wst.jsdt.web"/>
   <fixed facet="java"/>
   <fixed facet="jst.web"/>
