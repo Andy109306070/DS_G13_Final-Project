@@ -1,11 +1,12 @@
 
-
+import java.awt.print.Printable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLDecoder;
 
 public class WordCounter {
 	private String urlStr;
@@ -16,43 +17,46 @@ public class WordCounter {
     }
     
     private String fetchContent() throws IOException{
-		URL url = new URL(this.urlStr);
+    	
+    	URL url = new URL(this.urlStr);
 		URLConnection conn = url.openConnection();
-		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
-			
 		InputStream in = conn.getInputStream();
-		BufferedReader br = new BufferedReader(new InputStreamReader(in));
-		
+		BufferedReader br = new BufferedReader(new InputStreamReader(in,"utf-8"));
+	
 		String retVal = "";
-		
+	
 		String line = null;
-			
+		
 		while ((line = br.readLine()) != null){
-			retVal = retVal + line + "\n";
+			//System.out.println(line);
+		    retVal = retVal + line + "\n";
 		}
-		in.close();
-			
+		
+		
 		return retVal;
     }
     
     public int countKeyword(String keyword) throws IOException{
 		if (content == null){
-		    content = fetchContent();
+		    content = fetchContent();//把html文件化
 		}
 		
 		//To do a case-insensitive search, we turn the whole content and keyword into upper-case:
 		content = content.toUpperCase();
 		keyword = keyword.toUpperCase();
 	
-		int retVal = 0;
-		int fromIdx = 0;
-		int found = -1;
+		//hw
+		int retVal = 0;//找到個數
+		int fromIdx = 0;//從哪開始搜尋
+		int found = -1;//找到的位置
 	
 		while ((found = content.indexOf(keyword, fromIdx)) != -1){
-		    retVal++;
-		    fromIdx = found + keyword.length();
+		   retVal++;
+		   fromIdx = found + keyword.length();
 		}
-	
+	    //
+		
 		return retVal;
     }
 }
+

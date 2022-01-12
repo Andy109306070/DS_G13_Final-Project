@@ -24,7 +24,7 @@ public class CallGoogle {
 		
 		// Encode Chinese keyword to UTF-8 for request URL
 		try {
-			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=100";
+			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=10";
 //			System.out.print(url);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -103,9 +103,11 @@ public class CallGoogle {
 		
 		for(Webpage w: sort.getSortedPageList()) {
 			retVal.put(w.getName() , w.getUrl());
+			System.out.print(w.getScore()+"   ");
 		}
+	
 		
-//		System.out.print(retVal);
+		System.out.print(retVal);
 		
 		return retVal;
 	}

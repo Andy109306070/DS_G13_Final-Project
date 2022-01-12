@@ -12,6 +12,7 @@ public class Sort {
 	private ArrayList<Webpage> pageList;
 	private KeywordList keywordlist;
 	
+	
 	public Sort() {
 		keywordlist = new KeywordList();
 		pageList = new ArrayList<Webpage>();
@@ -31,6 +32,8 @@ public class Sort {
 	}
 	
 	public void pageListSort() {
+		//Quicksort quicksort=new Quicksort(pageList);
+		//sortedPageList=quicksort.getLst();
 		WebpageHeap heap = new WebpageHeap(pageList);
 		sortedPageList = heap.output();
 	}
