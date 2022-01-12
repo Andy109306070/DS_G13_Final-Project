@@ -24,7 +24,7 @@ public class CallGoogle {
 		
 		// Encode Chinese keyword to UTF-8 for request URL
 		try {
-			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=10";
+			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=100";
 //			System.out.print(url);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -36,22 +36,20 @@ public class CallGoogle {
 		String retVal = "";
 		
 		URL u = new URL(url);
-		
 		URLConnection conn = u.openConnection();
 		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
 
 		InputStream in = conn.getInputStream();
-
 		InputStreamReader inReader = new InputStreamReader(in,"utf-8");
 
 		BufferedReader bufReader = new BufferedReader(inReader);
 		String line = null;
-
 		while((line=bufReader.readLine())!=null) {
 			retVal += line;
 		}
-		
+		in.close();
 		return retVal;
+
 	}
 	
 	public HashMap<String, String> query() throws IOException {
@@ -87,12 +85,16 @@ public class CallGoogle {
 				
 //				retVal.put(title, citeUrl);
 				
-				sort.addWagePage(citeUrl, title);
+				try{
+					sort.addWagePage(citeUrl, title);
+				}catch(Exception e) {
+					
+				}
 
 //				System.out.println(title + ","+citeUrl);
 
 			} catch (IndexOutOfBoundsException e) {
-//				e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
 		

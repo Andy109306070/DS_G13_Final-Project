@@ -25,9 +25,9 @@ public class Sort {
 	}
 	
 	public void setScore(Webpage webpage) throws IOException {
-		//webpage.setScore(keywordlist.getKeywordList());
-		BinaryTree tree = new BinaryTree(webpage);	
-		tree.setPostOrderScore(keywordlist.getKeywordList());
+		webpage.setScore(keywordlist.getKeywordList());
+		//BinaryTree tree = new BinaryTree(webpage);	
+		//tree.setPostOrderScore(keywordlist.getKeywordList());
 	}
 	
 	public void pageListSort() {

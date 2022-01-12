@@ -41,7 +41,10 @@ public class Main extends HttpServlet {
 			return;
 		}
 		CallGoogle google = new CallGoogle(request.getParameter("keyword"));
+
 		HashMap<String, String> query = google.query();
+
+
 		
 		String[][] s = new String[query.size()][2];
 		request.setAttribute("query", s);

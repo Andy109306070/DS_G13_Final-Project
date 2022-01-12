@@ -19,18 +19,19 @@ public class WordCounter {
 		URL url = new URL(this.urlStr);
 		URLConnection conn = url.openConnection();
 		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
-		
+			
 		InputStream in = conn.getInputStream();
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
-	
-		String retVal = "";
-	
-		String line = null;
 		
+		String retVal = "";
+		
+		String line = null;
+			
 		while ((line = br.readLine()) != null){
-		    retVal = retVal + line + "\n";
+			retVal = retVal + line + "\n";
 		}
-	
+		in.close();
+			
 		return retVal;
     }
     
