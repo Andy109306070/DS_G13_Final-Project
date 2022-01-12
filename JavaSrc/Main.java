@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -42,21 +43,33 @@ public class Main extends HttpServlet {
 		}
 		CallGoogle google = new CallGoogle(request.getParameter("keyword"));
 
-		HashMap<String, String> query = google.query();
-
+		//HashMap<String, String> query = google.query();
+		ArrayList<Webpage> query = google.query();
 
 		
+		//String[][] s = new String[query.size()][2];
+		//request.setAttribute("query", s);
+		//int num = 0;
+		//for(Entry<String, String> entry : query.entrySet()) {
+		    //String key = entry.getKey();
+		   // String value = entry.getValue();
+		   // s[num][0] = key;
+		    //s[num][1] = value;
+		   // num++;
+		//}
+//		System.out.println(query.entrySet());
+		
+
 		String[][] s = new String[query.size()][2];
 		request.setAttribute("query", s);
 		int num = 0;
-		for(Entry<String, String> entry : query.entrySet()) {
-		    String key = entry.getKey();
-		    String value = entry.getValue();
+		for(Webpage q : query) {
+		    String key = q.getName() ;
+		    String value = q.getUrl();
 		    s[num][0] = key;
 		    s[num][1] = value;
 		    num++;
 		}
-//		System.out.println(query.entrySet());
 		
 		request.getRequestDispatcher("Result.jsp").forward(request, response);
 	}

@@ -24,7 +24,7 @@ public class CallGoogle {
 		
 		// Encode Chinese keyword to UTF-8 for request URL
 		try {
-			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=10";
+			this.url = "http://www.google.com/search?q="+java.net.URLEncoder.encode(searchKeyword, "UTF-8")+"&oe=utf8&num=100";
 //			System.out.print(url);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -52,7 +52,7 @@ public class CallGoogle {
 
 	}
 	
-	public HashMap<String, String> query() throws IOException {
+	public ArrayList<Webpage> query() throws IOException {
 		Sort sort = new Sort();
 		
 		if(content == null){
@@ -102,14 +102,14 @@ public class CallGoogle {
 		sort.pageListSort();
 		
 		for(Webpage w: sort.getSortedPageList()) {
-			retVal.put(w.getName() , w.getUrl());
+			//retVal.put(w.getName() , w.getUrl());
 			System.out.print(w.getScore()+"   ");
 		}
 	
 		
 		System.out.print(retVal);
 		
-		return retVal;
+		return sort.getSortedPageList();
 	}
 
 }
